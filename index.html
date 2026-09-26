@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NEON SIEGE</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23050018'/><text x='2' y='12' font-size='10' fill='%237df9ff'>N</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="960" height="600"></canvas>
+  <div id="caption"></div>
+  <button id="dash-btn" aria-label="Dash">DASH</button>
+
+  <div id="screen-title" class="screen visible">
+    <h1 class="logo">NEON<span>SIEGE</span></h1>
+    <p class="tagline">Hold the line. The swarm is endless.</p>
+    <div class="menu">
+      <button class="mbtn" data-screen="howto">HOW TO PLAY</button>
+      <button class="mbtn" data-screen="leaderboard">LEADERBOARD</button>
+      <button class="mbtn" data-screen="settings">SETTINGS</button>
+      <button class="mbtn primary" id="btn-play">PLAY</button>
+    </div>
+    <p class="local-note">Local leaderboard — scores stay on this device.</p>
+  </div>
+
+  <div id="screen-howto" class="screen">
+    <h2>HOW TO PLAY</h2>
+    <div class="panel">
+      <p><b>Move</b> — Arrow keys / A D / touch-drag</p>
+      <p><b>Fire</b> — Space (hold) / autofire on mobile</p>
+      <p><b>Dash</b> — Shift / DASH button (brief invulnerability)</p>
+      <p><b>Pause</b> — Esc</p>
+      <p>Destroy enemies to score. Chain kills to raise your <span class="c-combo">combo multiplier</span>. Grab falling <span class="c-power">power-ups</span> — each family has 3 variants; duplicates extend and strengthen. Bosses every 5th wave. Survive.</p>
+    </div>
+    <button class="mbtn" data-screen="title">BACK</button>
+  </div>
+
+  <div id="screen-leaderboard" class="screen">
+    <h2>LEADERBOARD</h2>
+    <p class="local-note">Local leaderboard</p>
+    <div id="lb-list" class="panel lb"></div>
+    <div class="row">
+      <button class="mbtn" data-screen="title">BACK</button>
+      <button class="mbtn small" id="lb-clear">CLEAR</button>
+    </div>
+  </div>
+
+  <div id="screen-settings" class="screen">
+    <h2>SETTINGS</h2>
+    <div class="panel settings">
+      <label>Pilot name <input id="set-name" type="text" maxlength="12" value="ACE"></label>
+      <label>Music <input id="set-music" type="range" min="0" max="1" step="0.05"></label>
+      <label>Effects <input id="set-sfx" type="range" min="0" max="1" step="0.05"></label>
+      <label>Voice <input id="set-voice" type="range" min="0" max="1" step="0.05"></label>
+      <label class="chk"><input id="set-reduced" type="checkbox"> Reduced motion</label>
+      <label class="chk"><input id="set-shake" type="checkbox"> Screen shake</label>
+    </div>
+    <button class="mbtn" data-screen="title">BACK</button>
+  </div>
+
+  <div id="screen-pause" class="screen">
+    <h2>PAUSED</h2>
+    <div class="menu">
+      <button class="mbtn primary" id="btn-resume">RESUME</button>
+      <button class="mbtn" data-screen="settings">SETTINGS</button>
+      <button class="mbtn" id="btn-restart-pause">QUIT TO TITLE</button>
+    </div>
+  </div>
+
+  <div id="screen-gameover" class="screen">
+    <h2 class="go-title">GAME OVER</h2>
+    <div class="panel stats">
+      <div><span>Score</span><b id="go-score">0</b></div>
+      <div><span>Wave</span><b id="go-wave">1</b></div>
+      <div><span>Kills</span><b id="go-kills">0</b></div>
+      <div><span>Best combo</span><b id="go-combo">x1</b></div>
+      <div><span>Power-ups</span><b id="go-powerups">0</b></div>
+      <div><span>Time</span><b id="go-time">0:00</b></div>
+    </div>
+    <div class="menu">
+      <button class="mbtn primary" id="btn-retry-go">RETRY</button>
+      <button class="mbtn" data-screen="title">TITLE</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/input.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/powerups.js"></script>
+<script src="js/waves.js"></script>
+<script src="js/world.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+<script src="js/debug.js"></script>
+</body>
+</html>
